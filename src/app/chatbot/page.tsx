@@ -130,13 +130,7 @@ export default function ChatbotPage() {
                                                 <User className="h-5 w-5 text-white" />
                                             )}
                                             <div>
-                                                <div className="text-sm whitespace-pre-wrap prose prose-sm max-w-none">
-                                                    {mensagem.tipo === "bot" ? (
-                                                        <ReactMarkdown>{mensagem.conteudo}</ReactMarkdown>
-                                                    ) : (
-                                                        <p>{mensagem.conteudo}</p>
-                                                    )}
-                                                </div>
+                                                <p className="text-sm whitespace-pre-wrap">{mensagem.conteudo}</p>
                                                 <p className="text-xs mt-1 opacity-70">
                                                     {mensagem.timestamp.toLocaleTimeString()}
                                                 </p>

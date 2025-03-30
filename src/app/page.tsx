@@ -4,6 +4,9 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { TurmaCard } from "@/components/TurmaCard";
+import { Button } from "@/components/ui/button";
+import { Bot } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   const router = useRouter();
@@ -50,7 +53,15 @@ export default function Home() {
 
   return (
     <main className="container mx-auto py-10">
-      <h1 className="text-3xl text-center md:text-left font-bold mb-8">Minhas Turmas</h1>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl text-center md:text-left font-bold">Minhas Turmas</h1>
+        <Link href="/chatbot">
+          <Button variant="outline" className="gap-2">
+            <Bot className="h-4 w-4" />
+            Assistente Virtual
+          </Button>
+        </Link>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center md:place-items-stretch">
         {turmas.map((turma) => (
           <TurmaCard
