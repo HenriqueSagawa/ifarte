@@ -13,7 +13,7 @@ import { Plus, Info, Trash2, Download, ArrowLeft } from "lucide-react"
 import { exportToExcel } from '@/utils/exportToExcel'
 import * as XLSX from 'xlsx'
 import Link from "next/link"
-import { useSession } from "nextauth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 interface Aluno {
