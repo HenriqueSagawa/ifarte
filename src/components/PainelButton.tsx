@@ -9,7 +9,7 @@ export function PainelButton() {
     const pathname = usePathname()
 
     // Não mostrar o botão se já estiver na página do painel
-    if (pathname === "/painel") {
+    if (pathname === "/painel" || pathname === "Login") {
         return null
     }
 
