@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --radius: 0.5rem
+  }
+}
+
+@media (max-width: 640px) {
+    .tabs-list {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .tabs-trigger {
+        width: 100%;
+        justify-content: center;
+    }
+}
