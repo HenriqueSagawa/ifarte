@@ -13,6 +13,8 @@ import { Plus, Info, Trash2, Download, ArrowLeft } from "lucide-react"
 import { exportToExcel } from '@/utils/exportToExcel'
 import * as XLSX from 'xlsx'
 import Link from "next/link"
+import { useSession } from "nextauth/react";
+import { useRouter } from "next/navigation";
 
 interface Aluno {
     id: string
@@ -77,7 +79,15 @@ export default function PainelPage() {
         }
     ]
 
+    const { data: session, status } = useSession();
+     
+    const router = useRouter();
+
     useEffect(() => {
+       if (!session) {
+          router.push("/Login");
+        }
+
         carregarDados()
     }, [])
 
