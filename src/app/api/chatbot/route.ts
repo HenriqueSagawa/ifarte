@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server"
 import { GoogleGenerativeAI } from "@google/generative-ai"
 
-const genAI = new GoogleGenerativeAI("AIzaSyBHEPSiyvrzCA1Cni6nqOeIliNei8sLHGY")
+const genAI = new GoogleGenerativeAI("AIzaSyBHEPSiyvrzCA1Cni6nqOeIliNei8sLHGY");
+
+const baseUrl = process.env.APP_URL;
 
 // Armazena o histórico de conversas por sessão
 const historicoConversas = new Map<string, any[]>()
@@ -53,8 +55,8 @@ async function buscarDadosBanco(): Promise<DadosTurma[]> {
         
         // Busca dados usando as APIs existentes
         const [alunosRes, aulasRes] = await Promise.all([
-            fetch('/api/alunos'),
-            fetch('/api/aulas')
+            fetch(`${baseUrl}/api/alunos`),
+            fetch(`${baseUrl}/api/aulas`)
         ])
 
         console.log("Respostas recebidas:", {
