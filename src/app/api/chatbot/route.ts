@@ -53,8 +53,8 @@ async function buscarDadosBanco(): Promise<DadosTurma[]> {
         
         // Busca dados usando as APIs existentes
         const [alunosRes, aulasRes] = await Promise.all([
-            fetch('http://localhost:3000/api/alunos'),
-            fetch('http://localhost:3000/api/aulas')
+            fetch('/api/alunos'),
+            fetch('/api/aulas')
         ])
 
         console.log("Respostas recebidas:", {
