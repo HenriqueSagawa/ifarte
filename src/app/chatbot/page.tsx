@@ -54,7 +54,7 @@ export default function ChatbotPage() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     mensagem: inputMensagem,
                     sessionId: sessionId
                 }),
@@ -111,16 +111,14 @@ export default function ChatbotPage() {
                             {mensagens.map((mensagem) => (
                                 <div
                                     key={mensagem.id}
-                                    className={`flex ${
-                                        mensagem.tipo === "usuario" ? "justify-end" : "justify-start"
-                                    }`}
+                                    className={`flex ${mensagem.tipo === "usuario" ? "justify-end" : "justify-start"
+                                        }`}
                                 >
                                     <div
-                                        className={`max-w-[70%] rounded-lg p-3 ${
-                                            mensagem.tipo === "usuario"
+                                        className={`max-w-[70%] rounded-lg p-3 ${mensagem.tipo === "usuario"
                                                 ? "bg-blue-500 text-white"
                                                 : "bg-gray-100"
-                                        }`}
+                                            }`}
                                     >
                                         <div className="flex items-start gap-2">
                                             {mensagem.tipo === "bot" && (
@@ -130,7 +128,13 @@ export default function ChatbotPage() {
                                                 <User className="h-5 w-5 text-white" />
                                             )}
                                             <div>
-                                                <p className="text-sm whitespace-pre-wrap">{mensagem.conteudo}</p>
+                                                <div className="text-sm whitespace-pre-wrap prose prose-sm max-w-none">
+                                                    {mensagem.tipo === "bot" ? (
+                                                        <ReactMarkdown>{mensagem.conteudo}</ReactMarkdown>
+                                                    ) : (
+                                                        <p>{mensagem.conteudo}</p>
+                                                    )}
+                                                </div>
                                                 <p className="text-xs mt-1 opacity-70">
                                                     {mensagem.timestamp.toLocaleTimeString()}
                                                 </p>
